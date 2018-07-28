@@ -44,7 +44,7 @@ docker run --rm -ti \
     -v ${PWD}/gitKey:/key/gitKey:ro \
     -e REPO_LINK=git@github.com:{user}/{repo}.git \
     -e REPO_BRANCH=master \    
-    intoxicate/docker-git:altris-gpu
+    intoxicate/docker-git:git-2.5.1-gpu-python3.5-cuda9.0-cudnn7.0
 ```
 
 ## Example docker-compose
@@ -52,7 +52,7 @@ docker run --rm -ti \
 version: '3'
 services:
   altris:
-    image: intoxicate/docker-git:altris-gpu
+    image: intoxicate/docker-git:git-2.5.1-gpu-python3.5-cuda9.0-cudnn7.0
     ports:
       - "5000:5000"
     volumes:
