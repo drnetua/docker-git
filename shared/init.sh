@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-if [ -f /secrets/git ]; then
-	source /run/secrets/git
-	export export $(cut -d= -f1 /run/secrets/git)
+if [ -f /secrets/git-params ]; then
+    echo "Exporting params from secrets"
+	source /run/secrets/git-params
+	export export $(cut -d= -f1 /run/secrets/git-params)
 fi
 
+if [ -f /secrets/$REPO_KEY ]; then
+    echo "Exporting key from secrets"
+	cp /secrets/$REPO_KEY /key/
+fi
 
 if [ -z "$REPO_LINK" ]; then
 	echo -e "\033[1;91mERROR:\033[0m REPO_LINK env variable is required"
@@ -18,8 +23,6 @@ fi
 if [ -z "$REPO_KEY" ]; then
 	export REPO_KEY=id_rsa
 fi
-
-
 
 echo "repository : $REPO_LINK"
 echo "branch     : $REPO_BRANCH"

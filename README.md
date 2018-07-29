@@ -65,3 +65,10 @@ services:
 ## Credits
 
 Image based on [crunchgeek/git-clone](https://github.com/markhilton/docker-git-clone).
+
+## TODOs
+
+* load parameters and/or key from secrets
+* implement sparse checkout, see [stackoverflow](https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository)
+* parametrise entry point instead of hardcoded /boot.sh
+* 
