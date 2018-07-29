@@ -1,4 +1,5 @@
-FROM microsoft/cntk:2.5.1-cpu-python3.5
+ARG FROM_IMAGE=microsoft/cntk:2.5.1-cpu-python3.5
+FROM $FROM_IMAGE
 
 #update & git
 RUN mkdir /app && apt-get update && apt-get install -y git
