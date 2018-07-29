@@ -24,7 +24,7 @@ RUN mkdir /root/.ssh/ && \
 
 EXPOSE 5000
 
-ADD ../init.sh /app
+ADD ./init.sh /app
 RUN chmod 775 /app/init.sh
 
 # Clean up
