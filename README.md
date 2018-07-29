@@ -61,6 +61,25 @@ services:
       REPO_LINK: git@github.com:{user}/{repo}.git
       REPO_KEY: gitKey  
 ``` 
+## Build/Test
+
+```bash
+sudo ./build.sh build test 
+```
+
+Will rebuild image locally, start container and test that repo was cloned and server up and responding at http://127.0.0.1:5005/test/<test string> with JSON containing "param":"test string"
+
+```bash
+curl http://127.0.0.1:5005/test/test-token
+
+{
+    "status": "ok",
+    "param": "test-token"
+}
+
+```
+
+
 
 ## Credits
 
@@ -71,4 +90,4 @@ Image based on [crunchgeek/git-clone](https://github.com/markhilton/docker-git-c
 * load parameters and/or key from secrets
 * implement sparse checkout, see [stackoverflow](https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository)
 * parametrise entry point instead of hardcoded /boot.sh
-* 
+ 
