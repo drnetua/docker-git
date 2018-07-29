@@ -17,6 +17,8 @@ RUN chmod +x /app/pre-install.sh && /app/pre-install.sh && rm /app/pre-install.s
 
 EXPOSE 5000
 
-ADD ./init.sh /app
+ADD ./init.sh /app/
+
+RUN chmod +x /app/init.sh
 
 CMD ["/app/init.sh"]
